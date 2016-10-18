@@ -1,7 +1,7 @@
 ---
 
 - name: Copying Grafana repo to systems
-  copy: src="{{ playbook_dir }}/graphana.repo" dest=/etc/yum.repos.d/ force=no
+  copy: src="{{ playbook_dir }}/grafana.repo" dest=/etc/yum.repos.d/ force=no
 
 - name: Updating repositories
   cmd: yum repolist all
