@@ -1,0 +1,17 @@
+---
+
+- name: Copying Grafana repo to systems
+  copy: src="{{ playbook_dir }}/graphana.repo" dest=/etc/yum.repos.d/ force=no
+
+- name: Updating repositories
+  cmd: yum repolist all
+
+- name: Installing Grafana
+  yum: name=grafana state=latest
+
+- name: Enbale Grafana during boot
+  cmd: systemctl enable grafana
+
+- name: Start the grafana service
+  cmd: systemctl start grafana
+
